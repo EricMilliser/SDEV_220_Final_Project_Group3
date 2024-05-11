@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order Confirmation</title>
+</head>
+<body>
+    <h1>Order Confimtation</h1>
+    <u1>
+        {% for order in orders %}
+        <li>{{order.quantity}} x {{order.item.name}} - $ {{order.total}}</li>
+        {% endfor %}
+    </u1>
+</body>
+</html>

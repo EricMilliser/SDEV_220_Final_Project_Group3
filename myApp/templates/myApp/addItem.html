@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Item to Menu</title>
+</head>
+<body>
+    <h1>Add a New Item</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div>
+            <label for="id_name">Name:</label>
+            <input type="text" id="id_name" name="name" value="{{ form.name.value }}" required>
+        </div>
+        <div>
+            <label for="id_description">Description:</label>
+            <textarea id="id_description" name="description" required>{{ form.description.value }}</textarea>
+        </div>
+        <div>
+            <label for="id_price">Price:</label>
+            <input type="text" id="id_price" name="price" value="{{ form.price.value }}" required>
+        </div>
+        <div>
+            <label for="id_available">Available:</label>
+            <select id="id_available" name="available">
+                <option value="">---</option>
+                <option value="1" {% if form.available.value == "1" %}selected{% endif %}>Yes</option>
+                <option value="0" {% if form.available.value == "0" %}selected{% endif %}>No</option>
+            </select>
+        </div>
+        <button type="submit">Add Product</button>
+    </form>
+</body>
+</html>
